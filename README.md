@@ -78,7 +78,6 @@ independent-bookstore-events/
 │   └── screenshots/
 │       ├── desktop.png
 │       ├── mobile.png
-│       ├── dark-mode.png
 │       ├── event-management.png
 │       ├── form-validation.png
 │       └── search-filter.png
@@ -97,11 +96,11 @@ independent-bookstore-events/
 
 ### Desktop View:
 
-![Desktop](public/screenshots/desktop.png)
+![desktop](public/screenshots/Desktop.png)
 
 ### Mobile View:
 
-![mobile](public/screenshots/mobile.png)
+![mobile](public/screenshots/Mobile.png)
 
 ### Event Management:
 
