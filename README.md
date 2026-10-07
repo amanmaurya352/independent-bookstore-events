@@ -4,7 +4,7 @@ A responsive single-page web application built with HTML5, Vanilla CSS, and Vani
 
 ## Live Website
 
-<!-- Add your live website link here -->Features
+https://independent-bookstore-events.netlify.app/
 
 ## Features
 
