@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover and manage independent bookstore events, author talks, book signings, and community gatherings.">
+    <meta name="theme-color" content="#ffffff">
+    <title>BookEvent | Independent Bookstore Events</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <a class="brand" href="#home" aria-label="BookEvent home">
+                <span class="brand-name brand-shine">BookEvent</span>
+                <span class="brand-tagline">Independent Bookstore Events</span>
+            </a>
+            <button
+    class="mobile-menu-toggle"
+    id="mobile-menu-toggle"
+    type="button"
+    aria-label="Open menu"
+    aria-expanded="false"
+    aria-controls="main-navigation"
+>
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+
+            <nav class="main-navigation"
+                id="main-navigation"
+                 aria-label="Main navigation">
+                 
+                <a class="nav-link" href="#events">Explore Events</a>
+                <a class="nav-link" href="#add-event">Add Event</a>
+               <button
+    class="theme-toggle"
+    id="theme-toggle"
+    type="button"
+    aria-label="Switch to dark mode"
+    aria-pressed="false"
+>
+    <span class="theme-toggle-thumb" aria-hidden="true">☀</span>
+</button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="home">
+        <section class="hero-section" aria-labelledby="hero-title">
+            <div class="hero-content">
+                <p class="eyebrow">BOOKS · PEOPLE · COMMUNITY</p>
+                <h1 id="hero-title">Where <span>stories</span> bring us together.</h1>
+                <p class="hero-description">
+                    Discover upcoming author talks, book signings, reading sessions,
+                    and community gatherings at your independent bookstore.
+                </p>
+                <a class="primary-button create-event-button" href="#events">Explore upcoming events</a>
+            </div>
+        </section>
+
+        <section class="events-section" id="events" aria-labelledby="events-title">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">WHAT'S HAPPENING</p>
+                    <h2 id="events-title">Upcoming Events</h2>
+                    <p class="section-description">
+                        Find your next favourite literary experience.
+                    </p>
+                </div>
+                <p class="event-count" id="event-count" aria-live="polite"></p>
+            </div>
+
+            <div class="event-controls">
+                <div class="search-field">
+                    <label for="event-search">Search events</label>
+                    <input
+                        id="event-search"
+                        name="search"
+                        type="search"
+                        placeholder="Search by event, author or location"
+                        autocomplete="off"
+                    >
+                </div>
+
+                <div class="filter-field">
+                    <label for="event-filter">Event category</label>
+                    <select id="event-filter" name="category">
+                        <option value="all">All categories</option>
+                        <option value="author-talk">Author Talks</option>
+                        <option value="book-signing">Book Signings</option>
+                        <option value="reading">Reading Sessions</option>
+                        <option value="workshop">Workshops</option>
+                        <option value="community">Community Events</option>
+                    </select>
+                </div>
+            </div>
+
+            <div
+                class="loading-state"
+                id="loading-state"
+                role="status"
+                aria-live="polite"
+                hidden
+            >
+                <span class="loading-spinner" aria-hidden="true"></span>
+                <p>Loading events...</p>
+            </div>
+
+            <div class="empty-state" id="empty-state" hidden>
+                <h3>No data found</h3>
+                <p>Try a different search or category to discover more events.</p>
+                <button class="secondary-button" id="reset-filters" type="button">
+                    Clear filters
+                </button>
+            </div>
+
+            <div class="event-grid" id="event-grid" aria-label="Bookstore events"></div>
+        </section>
+
+        <section class="add-event-section" id="add-event" aria-labelledby="add-event-title">
+            <div class="form-intro">
+                <p class="eyebrow">EVENT MANAGEMENT</p>
+                <h2 id="add-event-title">Create a New Event</h2>
+                <p class="section-description">
+                    Add an upcoming bookstore event to the events list.
+                </p>
+            </div>
+
+            <form id="event-form" novalidate>
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="event-title">Event title</label>
+                        <input
+                            id="event-title"
+                            name="title"
+                            type="text"
+                            maxlength="100"
+                            required
+                            aria-describedby="title-error"
+                        >
+                        <span class="field-error" id="title-error" hidden></span>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="event-author">Author / Host</label>
+                        <input
+                            id="event-author"
+                            name="author"
+                            type="text"
+                            maxlength="80"
+                            required
+                            aria-describedby="author-error"
+                        >
+                        <span class="field-error" id="author-error" hidden></span>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="event-date">Event date</label>
+                        <input
+                            id="event-date"
+                            name="date"
+                            type="date"
+                            required
+                            aria-describedby="date-error"
+                        >
+                        <span class="field-error" id="date-error" hidden></span>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="event-time">Event time</label>
+                        <input
+                            id="event-time"
+                            name="time"
+                            type="time"
+                            required
+                            aria-describedby="time-error"
+                        >
+                        <span class="field-error" id="time-error" hidden></span>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="event-location">Location</label>
+                        <input
+                            id="event-location"
+                            name="location"
+                            type="text"
+                            maxlength="120"
+                            required
+                            aria-describedby="location-error"
+                        >
+                        <span class="field-error" id="location-error" hidden></span>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="event-category">Event category</label>
+                        <select
+                            id="event-category"
+                            name="category"
+                            required
+                            aria-describedby="category-error"
+                        >
+                            <option value="">Select a category</option>
+                            <option value="author-talk">Author Talk</option>
+                            <option value="book-signing">Book Signing</option>
+                            <option value="reading">Reading Session</option>
+                            <option value="workshop">Workshop</option>
+                            <option value="community">Community Event</option>
+                        </select>
+                        <span class="field-error" id="category-error" hidden></span>
+                    </div>
+
+                    <div class="form-field form-field-full">
+                        <label for="event-description">Event description</label>
+                        <textarea
+                            id="event-description"
+                            name="description"
+                            rows="4"
+                            maxlength="500"
+                            required
+                            aria-describedby="description-error"
+                        ></textarea>
+                        <span class="field-error" id="description-error" hidden></span>
+                    </div>
+                </div>
+
+                <button class="primary-button" type="submit">Create Event</button>
+                <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="#home" aria-label="BookEvent home">BookEvent</a>
+                <p>Independent Bookstore Events</p>
+            </div>
+
+            <div class="footer-note">
+                <p>Bringing readers, authors, and local communities together.</p>
+            </div>
+
+            <div class="footer-navigation">
+                <a href="#events">Explore Events</a>
+                <a href="#add-event">Add Event</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 BookEvent. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
