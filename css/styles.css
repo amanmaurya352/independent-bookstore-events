@@ -655,8 +655,8 @@ body.dark-mode .event-card:hover {
     }
 
     .main-navigation > a {
-        display: none;
-    }
+    display: block;
+}
 
     .hero-section {
         min-height: 500px;

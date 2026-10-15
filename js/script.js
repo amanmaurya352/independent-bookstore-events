@@ -223,7 +223,7 @@ eventForm.addEventListener("submit", function (event) {
   const titleError = document.getElementById("title-error");
   const title = titleInput.value.trim();
 
-  if (!/^[A-Za-z0-9][A-Za-z0-9 .,'&:!?()\-]{2,99}$/.test(title)) {
+  if (!/^[A-Za-z0-9][A-Za-z0-9 .,'&:!?()]{2,99}$/.test(title)) {
     titleField.classList.add("has-error");
     titleError.hidden = false;
     titleError.textContent = "Enter a valid event title.";
